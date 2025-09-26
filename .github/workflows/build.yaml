@@ -1,20 +1,15 @@
 name: DLH
-
 on:
   push:
     branches:
       - main
-
 jobs:
-
-
   dlh_build_node:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Pull
         run: git pull
-          
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
