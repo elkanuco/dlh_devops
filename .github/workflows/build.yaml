@@ -27,4 +27,4 @@ jobs:
       - name: show env
         id: show
         run: |
-          echo "${{ env.action_state }}"
+          echo "${{ github.actor }}"
