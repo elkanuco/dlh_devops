@@ -28,3 +28,5 @@ jobs:
         id: show
         run: |
           echo "${{ github.actor }}"
+          echo "${{ github.action_status }}"
+          echo "${{ github.sha }}"
