@@ -24,3 +24,7 @@ jobs:
         id: build
         run: npm run build
         if: steps.test.outcome == 'success'
+      - name: show env
+        id: show
+        run: |
+          echo "${{ env.action_state }}"
