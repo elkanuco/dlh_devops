@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - id: foo
-        uses: elkanuco/hello-world-composite-action@SHA
+        uses: elkanuco/hello-world-composite-action@feat/myfeature_5
         with:
           who-to-greet: 'Mona the Octocat'
       - run: echo random-number "$RANDOM_NUMBER"
