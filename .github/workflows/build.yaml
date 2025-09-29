@@ -2,7 +2,7 @@ name: DLH
 on:
   push:
     branches:
-      - feature/*
+      - feat/*
 jobs:
   call_reusable:
     uses: ./.github/workflows/ex4.yaml
