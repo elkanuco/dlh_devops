@@ -11,7 +11,7 @@ jobs:
     # Step 2: Generate a short SHA
       - name: Generate short SHA
         id: short_sha
-        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - name: run shell
         shell: bash
         run: |
