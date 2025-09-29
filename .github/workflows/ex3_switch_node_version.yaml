@@ -11,9 +11,12 @@ jobs:
         - name : setup node
           uses: actions/setup-node@v4
           with:
-            node-version: 'lts/*'
+            node-version:  ${{env.NODE_VERSION}}
         - name: run test
           shell: bash
           run: |
             npm install
             npm test
+        - name: check version
+          shell: bash
+          run: node -v
