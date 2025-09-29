@@ -11,12 +11,12 @@ jobs:
     # Step 2: Generate a short SHA
       - name: Generate short SHA
         id: short_sha
-        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+        run: echo "SHA_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
       - name: run shell
         shell: bash
         run: |
           curl --request POST --url https://api.github.com/repos/elkanuco/dlh_devops/issues \
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           --header 'content-type: application/json' \
-          --data '{"title": "Automated issue for commit: ${{ steps.short_sha.outputs.sha_short }}","body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ steps.short_sha.outputs.sha_short }}_."}' \
+          --data '{"title": "Automated issue for commit: ${{ env.SHA_SHORT }}","body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ env.SHA_SHORT }}_."}' \
           --fail
