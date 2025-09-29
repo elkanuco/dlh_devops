@@ -2,31 +2,9 @@ name: DLH
 on:
   push:
     branches:
-      - main
+      - feature/*
 jobs:
-  dlh_build_node:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Pull
-        run: git pull
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "lts/*"
-      - name: Install dependencies
-        id: dependencies
-        run: npm ci
-      - name: Run Tests
-        id: test
-        run: npm test
-      - name: Run build
-        id: build
-        run: npm run build
-        if: steps.test.outcome == 'success'
-      - name: show env
-        id: show
-        run: |
-          echo "${{ github.actor }}"
-          echo "${{ github.action_status }}"
-          echo "${{ github.sha }}"
+  call_reusable:
+    uses: ./github/workflows/ex4.yaml
+    with:
+      node_version: '20'
